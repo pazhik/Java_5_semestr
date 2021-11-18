@@ -1,0 +1,28 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: Установка на CentOS
+      yum:
+        name: java-11-openjdk-devel
+        state: latest
+      when:
+        ansible_distribution == "CentOS"
+      become: yes
+      become_method: sudo
+
+    - name: Установка на Debian
+      apt:
+        name: openjdk-11-jdk
+        state: latest
+      when:
+        ansible_distribution == "Debian"
+      become: yes
+      become_method: sudo
+
+    - name: Копирование JAR на сервер
+      copy:
+        src: ../target/jenkins_sonar-1.0-SNAPSHOT.jar
+        dest: application.jar
+
+    - name: Запуск JAR
+      shell: java -jar application.jar
