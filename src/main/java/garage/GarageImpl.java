@@ -5,7 +5,7 @@ import java.util.*;
 public class GarageImpl implements Garage {
     protected static final List<Car> allCars = new ArrayList<>();
     private PriorityQueue<Car> velocityCars;
-    protected static final Map<Owner, ArrayList<Car>> ownersCars= new HashMap<>();;
+    protected static final Map<Owner, ArrayList<Car>> ownersCars= new HashMap<>();
     protected static final HashMap<String, ArrayList<Car>> brandsCars = new HashMap<>();
 
     public GarageImpl() {
