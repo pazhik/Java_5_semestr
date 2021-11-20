@@ -25,7 +25,6 @@ public class GarageImpl implements Garage {
     {
         return ownersCars.keySet();
     }
-
     /**
      * Complexity should be less than O(n)
      */
