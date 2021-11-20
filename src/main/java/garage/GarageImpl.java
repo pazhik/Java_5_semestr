@@ -1,20 +1,20 @@
+package garage;
+
 import java.util.*;
 
 public class GarageImpl implements Garage {
-    public ArrayList<Car> allCars ;
+    public static final ArrayList<Car> allCars = new ArrayList<>();
     private PriorityQueue<Car> velocityCars;
     public HashMap<Owner, ArrayList<Car>> ownersCars;
-    private HashMap<String, ArrayList<Car>> brandsCars;
+    private static final  HashMap<String, ArrayList<Car>> brandsCars = new HashMap<>();;
 
     public GarageImpl() {
-            allCars = new ArrayList<>();
             velocityCars = new PriorityQueue<>(Car.compareByMaxVelocity);
             ownersCars = new HashMap<>();
-            brandsCars = new HashMap<>();
     }
 
     private Owner getOwnerWithId(int ownerId) {
-        ArrayList<Owner> uniqueOwners = new ArrayList<Owner>(allCarsUniqueOwners());
+        ArrayList<Owner> uniqueOwners = new ArrayList<>(allCarsUniqueOwners());
         for (Owner owner : uniqueOwners)
             if (owner.getId() == ownerId)
                 return owner;
@@ -54,12 +54,12 @@ public class GarageImpl implements Garage {
      * Complexity should be less than O(n)
      */
     public Collection<Car> carsWithPowerMoreThan(int power) {
-        ArrayList<Car> CarsWthMorePower = new ArrayList<>();
+        ArrayList<Car> carsWithMorePower = new ArrayList<>();
         for (Car car : allCars)
             if (car.getPower() > power)
-                CarsWthMorePower.add(car);
+                carsWithMorePower.add(car);
 
-        return CarsWthMorePower;
+        return carsWithMorePower;
     }
 
     /**
@@ -106,7 +106,7 @@ public class GarageImpl implements Garage {
 
 
                 Owner ownerOfCar = getOwnerWithId(car.getOwnerId());
-                ArrayList<Car> changedCarsOfOwner = ownersCars.get(ownerOfCar);
+                ArrayList<Car> changedCarsOfOwner = ownersCars.getOrDefault(ownerOfCar, new ArrayList<Car>());
 
                 if (changedCarsOfOwner != null) {
                     changedCarsOfOwner.remove(car);

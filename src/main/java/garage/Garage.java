@@ -1,3 +1,5 @@
+package garage;
+
 import java.util.Collection;
 
 public interface Garage {

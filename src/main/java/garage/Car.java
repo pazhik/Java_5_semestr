@@ -1,3 +1,5 @@
+package garage;
+
 import java.util.Comparator;
 
 public class Car {
@@ -43,11 +45,6 @@ public class Car {
         return ownerId;
     }
 
-    public static final Comparator<Car> compareByMaxVelocity = new Comparator<Car>(){
-        @Override
-        public int compare(Car o1, Car o2) {
-            return o2.maxVelocity - o1.maxVelocity;
-        }
-    };
+    public static final Comparator<Car> compareByMaxVelocity = (o1, o2) ->  {return o2.maxVelocity - o1.maxVelocity;};
 
 }

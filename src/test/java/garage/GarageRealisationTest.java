@@ -1,18 +1,25 @@
+package garage;
+
+import garage.Car;
+import garage.GarageImpl;
+import garage.Owner;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertTrue;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class GarageRealisationTest {
+public class
+GarageRealisationTest {
     private static GarageImpl garage;
-    private static ArrayList<Owner> testOwners;
-    private static ArrayList<Car> testCars;
+    private static List<Owner> testOwners;
+    private static List<Car> testCars;
 
     @BeforeClass
     public static void setUp() throws Exception {
