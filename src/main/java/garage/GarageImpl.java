@@ -3,10 +3,10 @@ package garage;
 import java.util.*;
 
 public class GarageImpl implements Garage {
-    public static final ArrayList<Car> allCars = new ArrayList<>();
+    protected static final List<Car> allCars = new ArrayList<>();
     private PriorityQueue<Car> velocityCars;
-    public HashMap<Owner, ArrayList<Car>> ownersCars;
-    private static final  HashMap<String, ArrayList<Car>> brandsCars = new HashMap<>();;
+    public Map<Owner, ArrayList<Car>> ownersCars;
+    protected static final HashMap<String, ArrayList<Car>> brandsCars = new HashMap<>();
 
     public GarageImpl() {
             velocityCars = new PriorityQueue<>(Car.compareByMaxVelocity);
@@ -106,7 +106,7 @@ public class GarageImpl implements Garage {
 
 
                 Owner ownerOfCar = getOwnerWithId(car.getOwnerId());
-                ArrayList<Car> changedCarsOfOwner = ownersCars.getOrDefault(ownerOfCar, new ArrayList<Car>());
+                ArrayList<Car> changedCarsOfOwner = ownersCars.getOrDefault(ownerOfCar, new ArrayList<>());
 
                 if (changedCarsOfOwner != null) {
                     changedCarsOfOwner.remove(car);

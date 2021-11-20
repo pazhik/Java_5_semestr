@@ -45,6 +45,6 @@ public class Car {
         return ownerId;
     }
 
-    public static final Comparator<Car> compareByMaxVelocity = (o1, o2) ->  {return o2.maxVelocity - o1.maxVelocity;};
+    public static final Comparator<Car> compareByMaxVelocity = (o1, o2) ->  o2.maxVelocity - o1.maxVelocity;
 
 }
